@@ -1,7 +1,11 @@
 var balX = 50;
 var balY = 50;
+var bal2X = 70;
+var bal2Y = 100;
 var balSnelheidX = 4;
 var balSnelheidY= 4;
+
+
 
 /**
  * setup
@@ -27,24 +31,46 @@ function setup() {
 
 function draw() {
   // stel vulkleur in
-  background('blue');
+  background(100,110,100);
 
   // teken een cirkel
-  ellipse(balX,balY,80,80);
+  function bal2 (){
+    ellipse(bal2X,bal2Y, 80, 80); 
 
-  balX= balX +balSnelheidX;
-  balY= balY +balSnelheidY; 
+   bal2X= bal2X +balSnelheidX;
+   bal2Y= bal2Y +balSnelheidY; 
 
-  if(balY > 680 || balY < 40){
+   if(bal2Y > 680 || bal2Y < 40){
+    balSnelheidY = balSnelheidY *-2;
+    fill(255,255,255);
+    ellipse(bal2X,bal2Y,80,80);
+   }
+   if(bal2X > 1240 || bal2X < 40){
+      balSnelheidX = balSnelheidX *-2;
+      fill(255,255,255);
+      ellipse(bal2X,bal2Y,80,80);
+   }
+  } 
+
+
+  
+  function bal1(){
+   ellipse(balX,balY,80,80);
+
+   balX= balX +balSnelheidX;
+   balY= balY +balSnelheidY; 
+
+   if(balY > 680 || balY < 40){
     balSnelheidY = balSnelheidY *-1;
     fill(255,255,255);
     ellipse(balX,balY,80,80);
-  }
-  if(balX > 1240 || balX < 40){
+   }
+   if(balX > 1240 || balX < 40){
       balSnelheidX = balSnelheidX *-1;
-      fill(0,0,0);
+      fill(40,49,40);
       ellipse(balX,balY,80,80);
-  }
+   }
+ }
 
-  
+
 }
